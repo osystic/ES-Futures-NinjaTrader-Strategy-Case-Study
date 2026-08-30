@@ -154,3 +154,23 @@ This showcase does **not** claim:
 Only sanitized architecture, methodology, aggregate results, limitations and engineering lessons are published. Confidential implementation source, raw evidence, private datasets, client information, account identifiers, commercial documents, delivery binaries and private repository history are intentionally excluded.
 
 This is a **sanitized public showcase**, not the engineering source of truth.
+
+## OSYSTIC PACE evidence framework
+
+- **P - Problem and constraints:** low-drawdown/high-PF ES strategy objective, NinjaTrader compatibility, confidential client context and evidence-based acceptance.
+- **A - Architecture and decisions:** risk-first managed-order architecture, session/news controls, registered candidate windows and deterministic promotion gate.
+- **C - Contribution and delivery:** OSYSTIC engineered, tested, documented and handed over the NinjaTrader system and bounded research framework.
+- **E - Evidence and outcomes:** 44/44 registered native runs, 0/11 eligible candidates, Stage B not opened and an explicit research/paper-only NO-GO boundary.
+
+## Governance and publication
+
+This repository follows OSYSTIC GitHub Governance Operating System v2.2.
+
+- Business/accountable and technical owner: Shawaiz Arif / `@osystic`
+- Governance implementation role: Ali Ahmed Sheikh
+- Workflow: issue -> short-lived branch -> draft PR -> validation/review -> squash merge
+- Publication approval and withdrawal: [docs/publication-record.md](docs/publication-record.md)
+- Ownership/reuse: [OWNERSHIP.md](OWNERSHIP.md)
+- Security/disclosure: [SECURITY.md](SECURITY.md)
+- Maintenance/withdrawal runbook: [docs/runbook.md](docs/runbook.md)
+- Platform exceptions: [docs/governance-exceptions.md](docs/governance-exceptions.md)

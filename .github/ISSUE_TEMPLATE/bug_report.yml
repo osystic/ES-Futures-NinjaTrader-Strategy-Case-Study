@@ -1,0 +1,29 @@
+name: Public artifact bug
+description: Report a factual, accessibility or validation defect.
+title: "[Bug] "
+body:
+  - type: textarea
+    id: observed
+    attributes:
+      label: Observed problem
+      description: Describe the public artifact defect without including private data.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected correction
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Public-safe evidence
+      description: Link public evidence or identify the private review record without exposing it.
+  - type: checkboxes
+    id: boundary
+    attributes:
+      label: Disclosure boundary
+      options:
+        - label: No confidential source, client identity, private evidence or credential is included.
+          required: true

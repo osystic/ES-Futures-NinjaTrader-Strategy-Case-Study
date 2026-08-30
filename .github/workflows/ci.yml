@@ -1,10 +1,14 @@
-name: Public showcase validation
+name: Public Case Study Validation
 
 on:
+  pull_request:
   push:
     branches: [main]
-  pull_request:
   workflow_dispatch:
+
+concurrency:
+  group: public-showcase-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
 
 permissions:
   contents: read
@@ -19,5 +23,5 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - name: Validate disclosure boundary
+      - name: Validate governance and disclosure boundary
         run: python scripts/validate_public_showcase.py
