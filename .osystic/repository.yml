@@ -1,0 +1,61 @@
+schema_version: 1
+governance_standard_version: "2.2"
+repository_name: osystic-ES-Futures-NinjaTrader-Strategy-Case-Study
+project_name: ES Futures NinjaTrader Strategy
+repository_class: public-case-study
+visibility: public
+lifecycle: maintenance
+business_owner: Shawaiz Arif
+technical_owner: Shawaiz Arif
+technical_owner_github: osystic
+governance_implementation_owner: Ali Ahmed Sheikh
+owner_team: engineering
+data_classification: public-sanitized
+client_identity_public: false
+
+portfolio:
+  eligible: true
+  status: published
+  evidence_status: evidence-verified
+  sanitization_status: approved
+  founder_approval: true
+  approval_date: 2026-08-30
+  approval_reference: docs/publication-record.md
+  withdrawal_owner: Shawaiz Arif
+
+delivery:
+  status: complete
+  default_branch: main
+  ci_required: true
+  production_environment: false
+  deployable_trading_system: false
+
+claims:
+  registered_native_runs: 44
+  registered_candidates: 11
+  eligible_candidates: 0
+  stage_b_opened: false
+  delivered_use: RESEARCH_PAPER_TRADING_ONLY
+  live_funded_decision: NO-GO
+
+handover:
+  required: true
+  status: complete
+  runbook: docs/runbook.md
+
+retention:
+  legal_hold: false
+  review_date: 2027-02-28
+  withdrawal_process: docs/runbook.md
+
+public_showcase:
+  source_code_allowed: false
+  raw_evidence_allowed: false
+  client_identity_allowed: false
+  history_independent: true
+  pace_framework: complete
+
+platform_exceptions:
+  account_model: github-user
+  organization_controls_applicable: false
+  exception_record: docs/governance-exceptions.md
