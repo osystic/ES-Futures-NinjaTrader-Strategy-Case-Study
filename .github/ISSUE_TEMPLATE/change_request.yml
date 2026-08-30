@@ -1,0 +1,43 @@
+name: Public case-study change
+description: Propose a documentation, diagram, claim or governance change.
+title: "[Change] "
+body:
+  - type: textarea
+    id: outcome
+    attributes:
+      label: Required outcome
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      description: Include validation and disclosure checks.
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Area
+      options:
+        - Case-study narrative
+        - Architecture or diagram
+        - Results or evidence wording
+        - Security or disclosure
+        - Governance or automation
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence and approval impact
+      description: Identify the evidence source and whether founder reapproval is required.
+  - type: checkboxes
+    id: controls
+    attributes:
+      label: Controls
+      options:
+        - label: No confidential source, private evidence, client identity or commercial information is included.
+          required: true
+        - label: No unsupported performance or live-readiness claim is introduced.
+          required: true
