@@ -1,36 +1,58 @@
 #!/usr/bin/env python3
-"""Validate the sanitized public case-study boundary."""
+"""Validate the OSYSTIC v2.2 sanitized public case-study boundary."""
 
 from __future__ import annotations
 
 import json
 import re
-import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 
 REQUIRED = [
     "README.md",
-    "case-study.md",
+    "CONTRIBUTING.md",
+    "SECURITY.md",
+    "OWNERSHIP.md",
     "NOTICE.md",
+    ".gitignore",
+    ".env.example",
+    ".editorconfig",
+    "case-study.md",
     "public-showcase-manifest.json",
+    ".osystic/repository.yml",
     "assets/architecture.svg",
     "assets/validation.svg",
+    "docs/architecture.md",
     "docs/technical-overview.md",
     "docs/validation-methodology.md",
     "docs/results-summary.md",
     "docs/lessons-learned.md",
     "docs/disclosure-boundary.md",
+    "docs/adr/README.md",
+    "docs/runbook.md",
+    "docs/handover.md",
+    "docs/governance-exceptions.md",
+    "docs/publication-record.md",
+    ".github/CODEOWNERS",
+    ".github/pull_request_template.md",
+    ".github/ISSUE_TEMPLATE/bug_report.yml",
+    ".github/ISSUE_TEMPLATE/change_request.yml",
+    ".github/workflows/ci.yml",
+    ".github/dependabot.yml",
 ]
 
 FORBIDDEN_SUFFIXES = {
-    ".cs", ".dll", ".zip", ".7z", ".rar", ".xlsx", ".xls",
+    ".cs", ".dll", ".zip", ".7z", ".rar", ".xlsx", ".xls", ".docx", ".pdf",
     ".csv", ".txt", ".xml", ".nt8", ".sqlite", ".db",
 }
 
 FORBIDDEN_NAMES = {
     "output.txt", "trades.csv", "orders.csv", "executions.csv",
+}
+
+TEXT_NAMES = {
+    ".gitignore", ".env.example", ".editorconfig",
 }
 
 SECRET_PATTERNS = [
@@ -66,7 +88,8 @@ for path in ROOT.rglob("*"):
     if lower_name in FORBIDDEN_NAMES:
         fail(f"raw runtime artifact is not allowed: {relative}")
 
-    if path.suffix.lower() not in {".md", ".json", ".py", ".yml", ".yaml", ".svg"}:
+    is_text = path.suffix.lower() in {".md", ".json", ".py", ".yml", ".yaml", ".svg"}
+    if not is_text and path.name not in TEXT_NAMES:
         continue
 
     text = path.read_text(encoding="utf-8", errors="strict")
@@ -80,9 +103,27 @@ for path in ROOT.rglob("*"):
 manifest = json.loads((ROOT / "public-showcase-manifest.json").read_text(encoding="utf-8"))
 if manifest.get("artifactType") != "sanitized-engineering-case-study":
     fail("unexpected public showcase manifest classification")
+if manifest.get("governanceStandardVersion") != "2.2":
+    fail("OSYSTIC governance version must be 2.2")
 if manifest.get("publicClaims", {}).get("liveFundedDecision") != "NO-GO":
     fail("live/funded decision must remain NO-GO")
 if manifest.get("publicClaims", {}).get("eligibleRegisteredCandidates") != 0:
     fail("eligible candidate count must remain zero")
+if not all(manifest.get("pace", {}).get(k) for k in ("problem", "architecture", "contribution", "evidence")):
+    fail("PACE publication record is incomplete")
+if manifest.get("publication", {}).get("status") != "published":
+    fail("publication status must remain explicit")
 
-print("Public showcase validation: PASS")
+repository_manifest = (ROOT / ".osystic/repository.yml").read_text(encoding="utf-8")
+for value in (
+    'governance_standard_version: "2.2"',
+    "repository_class: public-case-study",
+    "visibility: public",
+    "status: published",
+    "live_funded_decision: NO-GO",
+    "history_independent: true",
+):
+    if value not in repository_manifest:
+        fail(f"repository governance invariant missing: {value}")
+
+print("OSYSTIC public governance and disclosure validation: PASS")
