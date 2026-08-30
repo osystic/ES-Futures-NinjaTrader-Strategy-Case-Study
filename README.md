@@ -1,0 +1,1 @@
+# osystic-ES-Futures-NinjaTrader-Strategy-Case-Study
