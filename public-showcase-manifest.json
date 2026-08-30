@@ -1,11 +1,18 @@
 {
-  "schemaVersion": "1.0",
+  "schemaVersion": "1.1",
+  "governanceStandardVersion": "2.2",
   "publisher": "OSYSTIC",
   "artifactType": "sanitized-engineering-case-study",
   "project": "ES Futures NinjaTrader Strategy",
   "status": "completed",
   "platform": "NinjaTrader 8",
   "market": "ES futures",
+  "pace": {
+    "problem": true,
+    "architecture": true,
+    "contribution": true,
+    "evidence": true
+  },
   "publicClaims": {
     "nativeRegisteredRunsCompleted": 44,
     "nativeRegisteredRunsTotal": 44,
@@ -15,6 +22,13 @@
     "deliveredUse": "research-paper-trading-only",
     "liveFundedDecision": "NO-GO"
   },
+  "publication": {
+    "status": "published",
+    "approvalDate": "2026-08-30",
+    "approvalReference": "docs/publication-record.md",
+    "withdrawalOwner": "OSYSTIC Founder & CEO",
+    "historyIndependent": true
+  },
   "excludes": [
     "client identity",
     "commercial terms",
@@ -22,6 +36,6 @@
     "raw runtime evidence",
     "market and news datasets",
     "account and machine identifiers",
-    "private repository history"
+    "private repository links and history"
   ]
 }
