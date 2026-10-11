@@ -59,3 +59,14 @@ platform_exceptions:
   account_model: github-user
   organization_controls_applicable: false
   exception_record: docs/governance-exceptions.md
+
+project:
+  key: es-futures-ninjatrader-strategy
+  name: ES Futures NinjaTrader Strategy
+  status: completed
+
+website:
+  eligible: true
+  status: ready-for-review
+  canonical_slug: es-futures-ninjatrader-strategy
+  auto_sync: true
