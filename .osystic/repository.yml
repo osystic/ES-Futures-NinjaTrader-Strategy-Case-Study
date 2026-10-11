@@ -1,8 +1,8 @@
-schema_version: 1
+schema_version: 2
 governance_standard_version: "2.2"
 repository_name: osystic-ES-Futures-NinjaTrader-Strategy-Case-Study
 project_name: ES Futures NinjaTrader Strategy
-repository_class: public-case-study
+repository_class: public-showcase
 visibility: public
 lifecycle: maintenance
 business_owner: Shawaiz Arif
@@ -15,7 +15,7 @@ client_identity_public: false
 
 portfolio:
   eligible: true
-  status: published
+  status: approved-public-showcase
   evidence_status: evidence-verified
   sanitization_status: approved
   founder_approval: true
